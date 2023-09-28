@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Squares</title>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <script>
+
+        const container = document.querySelector(".container");
+        let square = document.createElement("div");
+        square.classList.add("square");
+
+        for (let i = 0; i < 16*16; i++) {
+            container.appendChild(createNewSquare());
+        }
+
+        function createNewSquare() {
+            let square = document.createElement("div");
+            square.classList.add("square");
+            return square;
+        }
+
+        function changeSquareColor(square){
+            square.classList.add(".hover");
+        }
+
+        squares = document.querySelectorAll(".square");
+
+        squares.forEach(square => {
+            square.addEventListener("mousedown", (e) => square.classList.add("hover"))
+        });
+
+    </script>
+
+</body>
+
+</html>
