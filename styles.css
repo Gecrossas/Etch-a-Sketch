@@ -3,7 +3,7 @@ div.container {
     flex-wrap: wrap;
 }
 
-div.container>* {
+.square {
     flex: 0 0 6%;
     aspect-ratio: 1;
     border-style: solid;
