@@ -14,25 +14,51 @@
 
     <script>
 
+        const squareStyles = {
+            flex: "0 0 6.1%",
+            aspectRatio: 1,
+            boxSizing: "border-box",
+            borderStyle: "solid",
+            borderWidth: "0.5px",
+            borderColor: "black",
+            margin: "0",
+            padding: "0"
+        };
+
+        const hoverStyles = {
+            backgroundColor: "rgb(50, 50, 50)"
+        };
+
         function generateGrid(size) {
-            if (size > 50) {
+            if (size > 64) {
                 console.log("Error: size of grid cannot be more than 50!")
             }
 
             const container = document.querySelector(".container");
             for (let i = 0; i < size * size; i++) {
-                container.appendChild(createNewSquare());
+                container.appendChild(createNewSquare(size));
             }
         }
 
-        function createNewSquare() {
+        function createNewSquare(gridSize) {
             let square = document.createElement("div");
             square.classList.add("square");
+            squareStyles.flex = `${(100 / gridSize).toFixed(3)}%`;
+            Object.assign(square.style, squareStyles);
             return square;
         }
 
-        function changeSquareColor(square) {
-            square.classList.add(".hover");
+        function addHoverStyleToSquare(square) {
+            hoverStyles.backgroundColor = getRandomRGBColor();
+            Object.assign(square.style, hoverStyles);
+        }
+
+        function getRandomRGBColor() {
+            const r = Math.floor(Math.random() * 256); // Random red value between 0 and 255
+            const g = Math.floor(Math.random() * 256); // Random green value between 0 and 255
+            const b = Math.floor(Math.random() * 256); // Random blue value between 0 and 255
+
+            return `rgb(${r}, ${g}, ${b})`;
         }
 
         function clearSquares() {
@@ -45,7 +71,7 @@
         function addPaintEventToSquares() {
             squares = document.querySelectorAll(".square");
             squares.forEach(square => {
-                square.addEventListener("mouseover", (e) => square.classList.add("hover"))
+                square.addEventListener("mouseover", (e) => addHoverStyleToSquare(square))
             });
         }
 

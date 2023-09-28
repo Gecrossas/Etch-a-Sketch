@@ -3,7 +3,7 @@ div.container {
     flex-wrap: wrap;
 }
 
-.square {
+/* .square {
     flex: 0 0 6%;
     aspect-ratio: 1;
     border-style: solid;
@@ -11,8 +11,8 @@ div.container {
     border-color: black;
     margin: 0;
     padding: 0;
-}
+} */
 
-.hover {
-    background-color: blue;
-}
+/* .hover {
+    background-color: rgb(50, 50, 50);
+} */
